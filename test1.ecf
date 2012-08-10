@@ -1,0 +1,42 @@
+# Numbers
+integerVariable		1
+floatVariable1		2.0
+floatVariable2		3e-5
+
+# Strings
+# Both these strings are composed of two lines
+stringVariable1		'Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+					'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+stringVariable2		'Lorem ipsum dolor sit amet,
+					+ consectetur adipisicing elit,
+					'sed do eiusmod tempor incididunt
+					+ ut labore et dolore magna aliqua.
+					
+# Bool and null
+trueVariable		true
+falseVariable		false
+nullVariable		null
+
+# Arrays
+array
+	firstArrayElement		123
+	# Composite keys
+	"Second array element"	345
+	`"Quotes" in key`		567
+	# Nested arrays
+	arrayInArray
+		@	'Keys for elements that starts 
+		@	'with @ will be assigned automatically
+		@
+			x	0
+			y	1
+		@
+			x	1
+			y	2
+		45	'Custom key
+		@	'This element must have 46 as key
+	emptyArray
+	emptyString	'
+
+# PS
+copyrigth	'masterfri
