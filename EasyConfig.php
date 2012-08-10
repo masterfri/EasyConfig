@@ -35,7 +35,7 @@ class EasyConfig
 	{
 		$f = @fopen($name, 'r');
 		if (! is_resource($f)) {
-			throw new SCF_Exception("Can't open file $name");
+			throw new EasyConfig_Exception("Can't open file $name");
 		}
 		
 		$current_collection = &$this->data;
@@ -66,7 +66,7 @@ class EasyConfig
 					$last_entry .= ('+' == $str{0} ? '' : "\n") . substr($str, 1);
 					continue;
 				} else {
-					throw new SCF_Exception("Unexpected string in line $line_number");
+					throw new EasyConfig_Exception("Unexpected string in line $line_number");
 				}
 			}
 			
@@ -84,7 +84,7 @@ class EasyConfig
 						$current_collection = &$collection_stack[$stack_size];
 						$stack_size++;
 					} else {
-						throw new SCF_Exception("Invalid indent strucure in line $line_number");
+						throw new EasyConfig_Exception("Invalid indent strucure in line $line_number");
 					}
 				} else {
 					// go out of struct
@@ -93,7 +93,7 @@ class EasyConfig
 						array_pop($collection_stack);
 						$stack_size--;
 						if ($stack_size < 1) {
-							throw new SCF_Exception("Invalid indent strucure in line $line_number");
+							throw new EasyConfig_Exception("Invalid indent strucure in line $line_number");
 						}
 						if ($indent_stack[$stack_size - 1] == $indent) {
 							$current_indent = $indent;
@@ -156,7 +156,7 @@ class EasyConfig
 						$current_collection[$identifier] = floatval($value);
 					}
 				} else {
-					throw new SCF_Exception("Invalid value `$value` in line $line_number");
+					throw new EasyConfig_Exception("Invalid value `$value` in line $line_number");
 				}
 			}
 			
@@ -247,6 +247,6 @@ class EasyConfig
 	}
 }
 
-class SCF_Exception extends Exception
+class EasyConfig_Exception extends Exception
 {}
 
