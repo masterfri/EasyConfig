@@ -63,7 +63,7 @@ class EasyConfig
 			} elseif ("'" == $str{0} || '+' == $str{0}) {
 				if ($prev_is_string) {
 					// continue previouse string
-					$last_entry .= ('+' == $str{0} ? '' : "\n") . substr($str, 1);
+					$last_entry .= ('+' == $str{0} ? '' : "\n") . (strlen($str) > 1 ?  substr($str, 1) : '');
 					continue;
 				} else {
 					throw new EasyConfig_Exception("Unexpected string in line $line_number");
